@@ -23,6 +23,21 @@ namespace Lista_Ligada
             miLista.Adicionar(15);
             //Recorre y muestra los objetos de la lista
             miLista.Transversa();
+            //Se declara una variable tipo CNodo que va a ser igual a la función buscar con un parametro
+            //y retorna a encontrado dependiendo su resultado
+            CNodo encontrado = miLista.Buscar(15);
+            Console.WriteLine(encontrado);
+            //Desocupa la lista y luego inserna un nuevo nodo
+            miLista.Vaciar();
+            miLista.Adicionar(15);
+            miLista.Transversa();
+            //Retorna false indicando que hay un nodo, ya que el ancla no apunta a null
+            Console.WriteLine(miLista.EstaVacio());
+            //Desocupa la lista
+            miLista.Vaciar();
+            miLista.Transversa();
+            //Retorna true indicando que no hay un nodo, ya que el ancla apunta a null
+            Console.WriteLine(miLista.EstaVacio());
         }
     }
 }

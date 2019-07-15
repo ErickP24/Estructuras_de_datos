@@ -73,5 +73,58 @@ namespace Lista_Ligada
             //Ligar el utimo nodo encontrado con el recien creado
             trabajo.Siguiente = temp;
         }
+
+        //Método para vaciar la lista
+        public void Vaciar()
+        {
+            //así lo que se hace es desconectar el ancla de la lista
+            //el recolector de C# elimina los nodos que se tienen
+            //En otros lenguajes hay que liberar nodo a nodo y liberar la memjoria de manera adecuada
+            ancla.Siguiente = null;
+        }
+
+        //Indica si la lista está vacia o no
+        public bool EstaVacio()
+        {
+            //Verifica si el ancla esta apuntando a null, de ser así retorna true indicando que si está vacía la lista
+            //de lo contrario retorna false lo que hace saber que hay nodos en la lista
+            if(ancla.Siguiente == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Reglresa el primer nodo con el valor que se está buscando
+        //Si el valor está en varios nodos trae la primera concurrencia
+        //Si el nodo no existe va a regresar un null
+        //Si si existe trae la referencia a ese lugar
+        public CNodo Buscar (int pDato)
+        {
+            //Se verifica si la lista está vacía y retorna null de ser así
+            if(EstaVacio() == true)
+            {
+                return null;
+            }
+            //Se hace una variación a la trasversa
+            //Trabajo 2 sirve de referencia para el nodo que se está buscando 
+            trabajo2 = ancla;
+            //Como en la trasversa se recorre la lista para realizar la busqueda del valor ingresado
+            while(trabajo2.Siguiente != null)
+            {
+                trabajo2 = trabajo2.Siguiente;
+                //Si, el valor que tiene trabajo2 es igual al solicitado "pDato"
+                //Retorna el valor de trabajo2
+                if(trabajo2.Dato == pDato)
+                {
+                    return trabajo2;
+                }
+            }
+            //Si no se encontró el pDato retorna null indicando que no está
+            return null;
+        }
     }
 }
