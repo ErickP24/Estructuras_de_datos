@@ -217,15 +217,13 @@ namespace Lista_Ligada
         //pValor es el dato que se va a insertar en el nuevo nodo
         public void InsertarAlInicio( int pValor)
         {
-            //Se asigna el valor del ancla a trabajo
-            trabajo = ancla;
             //Se crea el nodo temporal que se quiere insertar
             CNodo temp = new CNodo();
             temp.Dato = pValor;
             //Se conecta temp a la lista, es decir que se hace una referencia al valor siguiente
-            temp.Siguiente = trabajo.Siguiente;
+            temp.Siguiente = ancla.Siguiente;
             //Se conecta trabajo al temp
-            trabajo.Siguiente = temp;
+            ancla.Siguiente = temp;
         }
     }
 }
