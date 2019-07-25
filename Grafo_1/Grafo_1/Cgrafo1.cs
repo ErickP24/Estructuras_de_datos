@@ -33,22 +33,35 @@ namespace Grafo_1
         //Método que va a mostrar las adyacencias
         public void MuestraAdyacencia()
         {
+            //n y m son variables que servirán para recorrer filas y columnas de la matriz de adyacencia
             int n = 0;
             int m = 0;
+            //Se pinta el color amarillo
             Console.ForegroundColor = ConsoleColor.Yellow;
+            //Este ciclo sirve para recorrer el encabezado de las columnas y mostrarlo dentro del color amarillo
+            //listando oel npumro de nodo al que corresponde
             for (n = 0; n < nodos; n++)
             {
                 Console.Write("\t{0}", n);
             }
+            //Salto de linea
             Console.WriteLine();
+            //Se haced el recorrido de la matriz de adyacencia
             for(n = 0; n < nodos; n++)
             {
+                //En amarillo va a mostrar el identificador de la fila
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(n);
+                //Ya dentro de la fila se comienzan a recorrer las columnas
                 for (m = 0; m < nodos; m++)
                 {
+                    //Se cololca el color verde
                     Console.ForegroundColor = ConsoleColor.Green;
+                    //Imprime los valores de la matriz en las coordenadas n.m
+                    Console.Write("\t{0}", Adyacencia[n, m]);
                 }
+                //Salto de linea
+                Console.WriteLine();
             }
         }
     }
